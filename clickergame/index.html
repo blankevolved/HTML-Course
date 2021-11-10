@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Test</title>
+  </head>
+  <body>
+    <button onclick="addClick(clickPower)">Click</button>
+
+    <p><span id="clicks">0</span> Clicks</p>
+
+    <p><span id="clickPower">1</span> Clicking Power</p>
+
+    <button onclick="upgradeCookie()">Get Cookie</button>
+
+    <p>Cookie Cost: <span id="cookieCst">10</span></p>
+
+    <p>Cookie Amount: <span id="cookieAmt">0</span></p>
+
+    <script>
+      var clicks = 0;
+
+      var clickPower = 1;
+
+      var cookieCst = 10;
+
+      var cookieAmt = 0;
+      function addClick(amount) {
+        clicks = clicks + amount;
+        document.getElementById("clicks").innerHTML = clicks;
+        document.getElementById("clickPower").innerHTML = clickPower;
+      }
+      function upgradeCookie() {
+        if (clicks >= cookieCst) {
+          clicks = clicks - cookieCst;
+          cookieAmt = cookieAmt + 1;
+          cookieCst = Math.round(cookieCst * 1.33);
+          clickPower = clickPower + 0.5;
+          document.getElementById("clicks").innerHTML = clicks;
+          document.getElementById("cookieCst").innerHTML = cookieCst;
+          document.getElementById("cookieAmt").innerHTML = cookieAmt;
+        }
+      }
+    </script>
+  </body>
+</html>
